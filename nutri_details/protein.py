@@ -1,3 +1,4 @@
+# 中国居民蛋白质推荐量
 import pandas as pd
 import json
 
@@ -11,6 +12,7 @@ data = pd.read_csv(r"./nutri_details/中国居民蛋白质推荐量.csv")
 
 def ear_rni_info(age_range, gender):
     try:
+
         matched_rows = data[data['年龄(岁)/生理状况'].str.contains(age_range)]
         if len(matched_rows) == 0:
             raise ValueError("输入的年龄不在数据集中，请检查。")

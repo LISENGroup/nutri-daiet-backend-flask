@@ -1,14 +1,27 @@
-# DateTimeSettings
-import os
+# config.py
+# 各种配置信息
 
-class FlaskConfig:
-    """开发环境"""
-    DEBUG = True
-    # .....
-    APP_SECRET_KEY =  b'_5#y2L"F4Q8z\n\xec]/'
-    # jwt 相关配置
-    JWT_SECRET_KEY = os.environ.get('JWT_SECRET_KEY') or 'jwt-xxx'
-    JWT_COOKIE_CSRF_PROTECT = True
-    JWT_CSRF_CHECK_FORM = True
-    JWT_ACCESS_TOKEN_EXPIRES = os.environ.get('JWT_ACCESS_TOKEN_EXPIRES') or 3600
-    PROPAGATE_EXCEPTIONS = True
+# 数据库的配置信息
+HOSTNAME='127.0.0.1'
+PORT='3306'
+DATABASE='web_2025'
+USERNAME='root'
+PASSWORD='123456'
+DB_URI='mysql+pymysql://{}:{}@{}:{}/{}?charset=utf8'.format(USERNAME,PASSWORD,HOSTNAME,PORT,DATABASE)
+SQLALCHEMY_DATABASE_URI=DB_URI
+
+
+# 邮箱配置
+MAIL_SERVER="smtp.qq.com"
+MAIL_PORT=465
+MAIL_USE_SSL=True
+MAIL_USERNAME="官方邮箱"
+MAIL_PASSWORD="官方邮箱发送验证码所需的密码"
+MAIL_DEFAULT_SENDER="官方邮箱"
+
+
+
+# 配置密钥
+JWT_SECRET_KEY="kajkf12@di&a"
+from datetime import timedelta
+JWT_ACCESS_TOKEN_EXPIRES=timedelta(days=7)  

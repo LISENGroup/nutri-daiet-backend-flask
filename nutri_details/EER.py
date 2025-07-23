@@ -1,3 +1,4 @@
+# 中国居民膳食能量需要量(EER)
 import pandas as pd
 import json
 
@@ -47,6 +48,7 @@ def pal_info(age_range, gender, PA):
     try:
         clean_data = data.dropna(subset=['年龄(岁)/生理状况'])
         matched_rows = clean_data[clean_data['年龄(岁)/生理状况'].str.contains(age_range)]
+        
         if len(matched_rows) == 0:
             raise ValueError("输入的年龄不在数据集中，请检查。")
         else:
